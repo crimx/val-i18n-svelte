@@ -1,18 +1,17 @@
 <script lang="ts">
-  import { setI18n } from "./context";
-  import type { I18n, LocaleLangObservable, TFunctionObservable } from "val-i18n";
-  import { derive, unwrap } from "value-enhancer";
+  import { setI18n, useLang, useTranslate } from "./context";
+  import { val } from "value-enhancer";
+  import type { I18n } from "val-i18n";
+
   export let i18n: I18n | Promise<I18n>;
+
   // `i18n$.value` will be the correct `I18n` for slot children
-  const i18n$ = setI18n(null as unknown as I18n);
-  // `t$.value` will be the correct `TFunction` for slot children
-  const t$ = unwrap(
-    derive(i18n$, (i18n) => (i18n ? i18n.t$ : (i18n$ as unknown as TFunctionObservable)))
-  );
-  // `lang$.value` will be the correct `LocaleLang` for slot children
-  const lang$ = unwrap(
-    derive(i18n$, (i18n) => (i18n ? i18n.lang$ : (i18n$ as unknown as LocaleLangObservable)))
-  );
+  const i18n$ = setI18n({ t$: val(""), lang$: val("") } as unknown as I18n);
+
+  const t$ = useTranslate();
+  const lang$ = useLang();
+
+  let loaded = false;
 
   $: {
     if ((i18n as Promise<I18n>).then) {
@@ -20,14 +19,16 @@
       (i18n as Promise<I18n>).then((i18nInstance) => {
         if (oldI18n === i18n) {
           i18n$.set(i18nInstance);
+          loaded = true;
         }
       });
     } else {
       i18n$.set(i18n as I18n);
+      loaded = true;
     }
   }
 </script>
 
-{#if $i18n$}
+{#if loaded}
   <slot i18n={$i18n$} t={$t$} lang={$lang$} />
 {/if}
