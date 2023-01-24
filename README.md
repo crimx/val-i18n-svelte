@@ -33,77 +33,77 @@ You can run the example in this repo by `pnpm dev`.
 
 ## Usage
 
-- With static locales:
+### With static locales:
 
-  Set `i18n` context root component:
+Set `i18n` context in root component:
 
-  ```svelte
-  <script>
-    import { setI18n, useTranslate } from "val-i18n-svelte";
-    import { I18n } from "val-i18n";
+```svelte
+<script>
+  import { setI18n, useTranslate } from "val-i18n-svelte";
+  import { I18n } from "val-i18n";
 
-    const locales = { en: { apple: "apple" } };
-    const i18n = new I18n("en", locales);
-    setI18n(i18n);
-  </script>
+  const locales = { en: { apple: "apple" } };
+  const i18n = new I18n("en", locales);
+  setI18n(i18n);
+</script>
 
-  <div>....</div>
-  ```
+<div>....</div>
+```
 
-  In descendent components (any level):
+Access i18n in descendent components (any level):
 
-  ```svelte
-  <script>
-    import { useTranslate, useLang, useI18n } from "val-i18n-svelte";
+```svelte
+<script>
+  import { useTranslate, useLang, useI18n } from "val-i18n-svelte";
 
-    const t = useTranslate();
-    const lang = useLang();
-    const i18n = useI18n();
-  </script>
+  const t = useTranslate();
+  const lang = useLang();
+  const i18n = useI18n();
+</script>
 
-  <div>{$t("apple")}</div>
-  <button on:click={() => $i18n.switchLang("zh")}>{$lang}</button>
-  ```
+<div>{$t("apple")}</div>
+<button on:click={() => $i18n.switchLang("zh")}>{$lang}</button>
+```
 
-- With dynamic locales:
+### With dynamic locales:
 
-  Set `i18n` context root component:
+Set `i18n` context in root component:
 
-  ```svelte
-  <script>
-    import { setI18n, I18nProvider } from "val-i18n-svelte";
-    import { I18n } from "val-i18n";
+```svelte
+<script>
+  import { setI18n, I18nProvider } from "val-i18n-svelte";
+  import { I18n } from "val-i18n";
 
-    const loader = I18n.load("en", (lang) => import(`../locales/${lang}.json`));
-    setI18n(i18n);
-  </script>
+  const loader = I18n.load("en", (lang) => import(`../locales/${lang}.json`));
+  setI18n(i18n);
+</script>
 
-  <I18nProvider i18n={loader}>.....</I18nProvider>
-  ```
+<I18nProvider i18n={loader}>.....</I18nProvider>
+```
 
-  In descendent components (any level):
+Access i18n in descendent components (any level):
 
-  ```svelte
-  <script>
-    import { useTranslate, useLang, useI18n } from "val-i18n-svelte";
+```svelte
+<script>
+  import { useTranslate, useLang, useI18n } from "val-i18n-svelte";
 
-    const t = useTranslate();
-    const lang = useLang();
-    const i18n = useI18n();
-  </script>
+  const t = useTranslate();
+  const lang = useLang();
+  const i18n = useI18n();
+</script>
 
-  <div>{$t("apple")}</div>
-  <button on:click={() => $i18n.switchLang("zh")}>{$lang}</button>
-  ```
+<div>{$t("apple")}</div>
+<button on:click={() => $i18n.switchLang("zh")}>{$lang}</button>
+```
 
-  If you need to access i18n at root component:
+If you need to access i18n in root component:
 
-  ```svelte
-  <I18nProvider let:t let:i18n let:lang>
-    <div>{t("apple")}</div>
-    <button on:click={() => i18n.switchLang("zh")}>{lang}</button>
-  </I18nProvider>
-  ```
+```svelte
+<I18nProvider let:t let:i18n let:lang>
+  <div>{t("apple")}</div>
+  <button on:click={() => i18n.switchLang("zh")}>{lang}</button>
+</I18nProvider>
+```
 
 ## Developing
 
