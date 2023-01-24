@@ -23,10 +23,10 @@ npm add val-i18n-svelte val-i18n value-enhancer
 
 ## API
 
-- `useTranslate` hook to get updated `i18n.t$`.
-- `useLang` hook to get updated `i18n.lang$`.
-- `useI18n` hook to get `i18n$`.
-- `<I18nProvide>` to set i18n context automatically.
+- `useTranslate` to get updated `i18n.t$` observable.
+- `useLang` to get updated `i18n.lang$` observable.
+- `useI18n` to get `i18n$` observable.
+- `<I18nProvide>` to set i18n context automatically (supports async loading).
 - `setI18n` to set i18n context manually.
 
 You can run the example in this repo by `pnpm dev`.
