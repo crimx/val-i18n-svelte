@@ -1,0 +1,12 @@
+{
+  "title": "这是一个标题",
+  "description": "这是一个描述",
+  "count": {
+    "0": "没有苹果",
+    "other": "有 {{:option}} 个苹果"
+  },
+  "language": {
+    "en": "英文",
+    "zh-CN": "中文"
+  }
+}

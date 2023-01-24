@@ -1,0 +1,13 @@
+{
+  "title": "This is a title",
+  "description": "This is a description",
+  "count": {
+    "0": "No apple",
+    "1": "{{:option}} apple",
+    "other": "{{:option}} apples"
+  },
+  "language": {
+    "en": "English",
+    "zh-CN": "Chinese"
+  }
+}
