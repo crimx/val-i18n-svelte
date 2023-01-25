@@ -5,8 +5,13 @@
 
   export let i18n: I18n | Promise<I18n>;
 
+  const isLoader = (i18n: I18n | Promise<I18n>): i18n is Promise<I18n> =>
+    (i18n as Promise<I18n>).then != null;
+
   // `i18n$.value` will be the correct `I18n` for slot children
-  const i18n$ = setI18n({ t$: val(""), lang$: val("") } as unknown as I18n);
+  const i18n$ = setI18n(
+    isLoader(i18n) ? ({ t$: val(""), lang$: val("") } as unknown as I18n) : i18n
+  );
 
   const t$ = useTranslate();
   const lang$ = useLang();
@@ -14,16 +19,16 @@
   let loaded = false;
 
   $: {
-    if ((i18n as Promise<I18n>).then) {
+    if (isLoader(i18n)) {
       const oldI18n = i18n;
-      (i18n as Promise<I18n>).then((i18nInstance) => {
+      i18n.then((i18nInstance) => {
         if (oldI18n === i18n) {
           i18n$.set(i18nInstance);
           loaded = true;
         }
       });
     } else {
-      i18n$.set(i18n as I18n);
+      i18n$.set(i18n);
       loaded = true;
     }
   }
