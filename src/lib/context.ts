@@ -10,7 +10,8 @@ export type I18nObservable = Val<I18n>;
 
 /**
  * Set the I18n context.
- * Can be set multiple times to update the context.
+ *
+ * Must be called during component initialization as it calls `getContext` under the hood.
  */
 export const setI18n = (i18n: I18n): I18nObservable => {
   let i18n$ = getContext<I18nObservable | undefined>(I18nContextKey);
@@ -26,7 +27,10 @@ export const setI18n = (i18n: I18n): I18nObservable => {
 
 /**
  * Get the I18n observable from context.
+ *
  * Can only be called after `setI18n`.
+ *
+ * Must be called during component initialization as it calls `getContext` under the hood.
  */
 export const useI18n = (): I18nObservable => {
   const i18n$ = getContext<I18nObservable | undefined>(I18nContextKey);
@@ -38,14 +42,20 @@ export const useI18n = (): I18nObservable => {
 
 /**
  * Get the t function observable from context.
+ *
  * Can only be called after `setI18n`.
+ *
+ * Must be called during component initialization as it calls `getContext` under the hood.
  */
 export const useTranslate = (): TFunctionObservable =>
   getContext(I18nTContextKey) || /* let it throw */ (useI18n() as never);
 
 /**
  * Get the locale lang observable from context.
+ *
  * Can only be called after `setI18n`.
+ *
+ * Must be called during component initialization as it calls `getContext` under the hood.
  */
 export const useLang = (): LocaleLangObservable =>
   getContext(I18nLangContextKey) || /* let it throw */ (useI18n() as never);
