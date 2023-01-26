@@ -107,7 +107,7 @@ If you need to access i18n in root component:
 
 ### Sub-context With Nested I18n
 
-You can add extra `setI18n` or `<Ii18nProvider />` in descendent components to override the context.
+You can add extra `setI18n` or `<Ii18nProvider />` in descendent components to override the context. Only the descendent components of the new context will be affected.
 
 ## Developing
 
