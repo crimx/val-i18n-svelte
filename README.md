@@ -23,11 +23,12 @@ npm add val-i18n-svelte val-i18n value-enhancer
 
 ## API
 
+- `<I18nProvide>` to set i18n context automatically (supports async loading).
+- `setI18n` to set i18n context manually.
+
 - `useTranslate` to get updated `i18n.t$` observable.
 - `useLang` to get updated `i18n.lang$` observable.
 - `useI18n` to get `i18n$` observable.
-- `<I18nProvide>` to set i18n context automatically (supports async loading).
-- `setI18n` to set i18n context manually.
 
 You can run the example in this repo by `pnpm dev`.
 
@@ -103,6 +104,10 @@ If you need to access i18n in root component:
   <button on:click={() => i18n.switchLang("zh")}>{lang}</button>
 </I18nProvider>
 ```
+
+### Sub-context With Nested I18n
+
+You can add extra `setI18n` or `<Ii18nProvider />` in descendent components to override the context.
 
 ## Developing
 
