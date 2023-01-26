@@ -1,6 +1,12 @@
 {
   "name": "val-i18n-svelte",
   "version": "0.1.0",
+  "private": false,
+  "description": "Svelte goodies for val-i18n",
+  "license": "MIT",
+  "author": "CRIMX <straybugs@gmail.com> (https://github.com/crimx/)",
+  "repository": "crimx/val-i18n-svelte",
+  "sideEffects": false,
   "scripts": {
     "dev": "vite dev",
     "build": "svelte-kit sync && svelte-package",
