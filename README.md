@@ -34,6 +34,8 @@ You can run the example in this repo by `pnpm dev`.
 
 ## Usage
 
+See live example on [Svelte REPL](https://svelte.dev/repl/99f393b7a8a04914a6a369c774aa436b).
+
 ### With static locales:
 
 Set `i18n` context in root component:
