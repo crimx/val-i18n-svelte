@@ -14,14 +14,9 @@ export type I18nObservable = Val<I18n>;
  * Must be called during component initialization as it calls `getContext` under the hood.
  */
 export const setI18n = (i18n: I18n): I18nObservable => {
-  let i18n$ = getContext<I18nObservable | undefined>(I18nContextKey);
-  if (i18n$) {
-    i18n$.set(i18n);
-  } else {
-    i18n$ = setContext(I18nContextKey, val(i18n));
-    setContext(I18nTContextKey, unwrap(derive(i18n$, (i18n) => i18n.t$)));
-    setContext(I18nLangContextKey, unwrap(derive(i18n$, (i18n) => i18n.lang$)));
-  }
+  const i18n$ = setContext(I18nContextKey, val(i18n));
+  setContext(I18nTContextKey, unwrap(derive(i18n$, (i18n) => i18n.t$)));
+  setContext(I18nLangContextKey, unwrap(derive(i18n$, (i18n) => i18n.lang$)));
   return i18n$;
 };
 
