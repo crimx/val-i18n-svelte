@@ -29,6 +29,7 @@ npm add val-i18n-svelte val-i18n value-enhancer
 - `useTranslate` to get updated `i18n.t$` observable.
 - `useLang` to get updated `i18n.lang$` observable.
 - `useI18n` to get `i18n$` observable.
+- `<Trans>` component to insert Svelte element into the translation message.
 
 You can run the example in this repo by `pnpm dev`.
 
@@ -105,6 +106,64 @@ If you need to access i18n in root component:
   <div>{t("apple")}</div>
   <button on:click={() => i18n.switchLang("zh")}>{lang}</button>
 </I18nProvider>
+```
+
+### Trans Component
+
+To insert Svelte elements into the translation message:
+
+```svelte
+<script>
+  import { useTranslate, Trans } from "val-i18n-svelte";
+  /*
+    with locale:
+    {
+      visit: "Visit this address {{fruit}}.",
+    }
+  */
+  const t = useTranslate();
+</script>
+
+<Trans message={$t("visit")}>
+  <a href="https://github.com/crimx/val-i18n-svelte">val-i18n-svelte</a>
+</Trans>
+```
+
+↓Outputs:
+
+```html
+Visit this address <a href="https://github.com/crimx/val-i18n-svelte">val-i18n-svelte</a>.
+```
+
+To inset multiple Svelte elements into the translate message, due to the limitation of Svelte ([without dynamic slot name support](https://github.com/sveltejs/svelte/issues/3480)), you need to use `let:key` to access the key of the placeholder. The `key` is the name of the placeholder in the translation message.
+
+```svelte
+<script>
+  import { useTranslate, Trans } from "val-i18n-svelte";
+  /*
+    with locale:
+    {
+      author: "CRIMX",
+      fruit: "apple",
+      eat: "{{name}} eats {{fruit}}.",
+    }
+  */
+  const t = useTranslate();
+</script>
+
+<Trans message={$t("eat")} let:key>
+  {#if key === "name"}
+    <strong>{$t("author")}</strong>
+  {:else if key === "fruit"}
+    <i>{$t("fruit")}</i>
+  {/if}
+</Trans>
+```
+
+↓Outputs:
+
+```html
+<strong>CRIMX</strong> eats <i>apple</i>.
 ```
 
 ### Sub-context With Nested I18n

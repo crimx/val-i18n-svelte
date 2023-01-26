@@ -4,7 +4,7 @@ import UseI18n from "./use-i18n.svelte";
 import UseTranslate from "./use-translate.svelte";
 import UseLang from "./use-lang.svelte";
 
-describe("context", () => {
+describe("error", () => {
   it("should throw error if i18n context missing", async () => {
     expect(() => render(UseI18n)).toThrow("I18n Context not found");
     expect(() => render(UseTranslate)).toThrow("I18n Context not found");

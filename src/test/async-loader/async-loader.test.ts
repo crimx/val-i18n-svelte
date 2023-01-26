@@ -6,7 +6,7 @@ import en from "./locales/en.json";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-describe("context", () => {
+describe("async-loader", () => {
   it("should set async i18n to context", async () => {
     const { container } = render(Parent);
 
