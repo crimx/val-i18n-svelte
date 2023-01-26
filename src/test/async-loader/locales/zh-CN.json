@@ -1,0 +1,8 @@
+{
+  "hello": "你好，世界！",
+  "language": {
+    "en": "英语",
+    "zh-CN": "中文"
+  },
+  "description": "这是一个描述"
+}

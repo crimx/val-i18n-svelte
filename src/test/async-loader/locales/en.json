@@ -1,0 +1,8 @@
+{
+  "hello": "Hello, World!",
+  "language": {
+    "en": "English",
+    "zh-CN": "Chinese"
+  },
+  "description": "This is a description"
+}
