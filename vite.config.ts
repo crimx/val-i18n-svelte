@@ -8,6 +8,7 @@ const config: UserConfig = {
     include: ["src/**/*.{test,spec}.{js,ts}"],
     coverage: {
       include: ["src/lib/**"],
+      reporter: ["text", "json", "html", "lcov"],
     },
   },
 };
