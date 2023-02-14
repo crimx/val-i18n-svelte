@@ -6,6 +6,17 @@
   "license": "MIT",
   "author": "CRIMX <straybugs@gmail.com> (https://github.com/crimx/)",
   "repository": "crimx/val-i18n-svelte",
+  "keywords": [
+    "internationalization",
+    "i18n",
+    "translation",
+    "localization",
+    "l10n",
+    "globalization",
+    "gettext",
+    "svelte",
+    "sveltejs"
+  ],
   "sideEffects": false,
   "scripts": {
     "dev": "vite dev",
