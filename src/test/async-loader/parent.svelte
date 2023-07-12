@@ -3,7 +3,7 @@
   import { I18nProvider } from "../../lib";
   import Child from "./child.svelte";
 
-  const loader = I18n.load("en", (lang) => import(`./locales/${lang}.json`));
+  const loader = I18n.preload("en", (lang) => import(`./locales/${lang}.json`));
 </script>
 
 <I18nProvider i18n={loader} let:t>
