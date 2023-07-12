@@ -27,6 +27,7 @@ jobs:
       - name: Build 🔧
         run: |
           pnpm run lint
+          pnpm run check
           pnpm run test
           pnpm run build
 
