@@ -1,6 +1,6 @@
 import { setContext, getContext } from "svelte";
 import type { I18n, LocaleLangObservable, TFunctionObservable } from "val-i18n";
-import { unwrap, val, type Val } from "value-enhancer";
+import { flatten, val, type Val } from "value-enhancer";
 
 const I18nContextKey = "_ValI18n";
 const I18nTContextKey = "_ValI18nT";
@@ -17,11 +17,11 @@ export const setI18n = (i18n: I18n): I18nObservable => {
   const i18n$ = setContext(I18nContextKey, val(i18n));
   setContext(
     I18nTContextKey,
-    unwrap(i18n$, (i18n) => i18n.t$)
+    flatten(i18n$, (i18n) => i18n.t$)
   );
   setContext(
     I18nLangContextKey,
-    unwrap(i18n$, (i18n) => i18n.lang$)
+    flatten(i18n$, (i18n) => i18n.lang$)
   );
   return i18n$;
 };

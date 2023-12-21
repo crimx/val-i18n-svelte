@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -60,11 +60,11 @@ devDependencies:
     specifier: ^4.9.3
     version: 4.9.4
   val-i18n:
-    specifier: ^0.1.6
-    version: 0.1.6(value-enhancer@3.0.2)
+    specifier: ^0.1.7
+    version: 0.1.7(value-enhancer@4.0.0)
   value-enhancer:
-    specifier: ^3.0.2
-    version: 3.0.2
+    specifier: ^4.0.0
+    version: 4.0.0
   vite:
     specifier: ^4.0.0
     version: 4.0.4(@types/node@18.11.18)
@@ -3763,12 +3763,12 @@ packages:
       convert-source-map: 1.9.0
     dev: true
 
-  /val-i18n@0.1.6(value-enhancer@3.0.2):
-    resolution: {integrity: sha512-I1nu63L27KiUZuB2eG41duYo9KXbFTshxnT4ulOBjNFd3QFqBfAheYKC5ok147myy/ne1tyWTxZTtQ/2swvRGA==}
+  /val-i18n@0.1.7(value-enhancer@4.0.0):
+    resolution: {integrity: sha512-bfTYCor2ahxemw/oTSCK8hp6EBbpLhKazpfuzoy49/MX5su/Ogwh6phS8aeloCzxuDt+be5krSXCvKYGQzDqnQ==}
     peerDependencies:
-      value-enhancer: '>=2 <=3'
+      value-enhancer: '>= 2 <=4'
     dependencies:
-      value-enhancer: 3.0.2
+      value-enhancer: 4.0.0
     dev: true
 
   /validate-npm-package-license@3.0.4:
@@ -3778,8 +3778,8 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /value-enhancer@3.0.2:
-    resolution: {integrity: sha512-5CgRai8X8Jl81NGDm0VrCvn4dzg9noltvPyTAZoZQRfLTNW/mv/giqxXCvI91RLuQ6N4Y20IsakMs/6KUTBSEw==}
+  /value-enhancer@4.0.0:
+    resolution: {integrity: sha512-li17sukPM75Ian+QsQt5UJXPNgP1ZWTSkl8FI9NXrKldic7x+ctbQ0fZgG7q38fPjsKGYghKWVsL8I29NHu4Qg==}
     dev: true
 
   /vite-node@0.28.1(@types/node@18.11.18):
