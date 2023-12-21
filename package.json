@@ -1,6 +1,6 @@
 {
   "name": "val-i18n-svelte",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": false,
   "description": "Svelte goodies for val-i18n",
   "license": "MIT",
